@@ -1,0 +1,12 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="workflowuimodule.controller.MyTaskUI" displayBlock="true">
+    <App id="app">
+        <pages>
+            <Page id="myApprovalPage" showHeader="false" showFooter="false">
+                <content>
+                    <Label text="My text is:" width="100%" id="label0"/>
+                    <Input value="{context>/someInputField}" id="__input0"/>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

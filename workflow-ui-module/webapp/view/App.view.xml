@@ -1,0 +1,9 @@
+<mvc:View xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" controllerName="workflowuimodule.controller.App" displayBlock="true">
+    <FlexBox class="sapUiMediumMargin" direction="Column" >
+        <Label text="Business Reason:" design="Bold"/>
+        <Input value="{context>/BusinessReason}" editable="false"/>
+        <Label text="Approver Comments:" design="Bold"/>
+        <TextArea xmlns="sap.m" value="{context>/Comments}" rows="4" width="100%"/>
+        <PDFViewer source="{context>/CMISFile}" title="Attachment" displayType="Embedded" height="800px"/>
+    </FlexBox>
+</mvc:View>
