@@ -145,24 +145,8 @@
                 "controlId": "app",
                 "clearControlAggregation": false
             },
-            "routes": [
-                {
-                    "name": "RouteMyTaskUI",
-                    "pattern": ":?query:",
-                    "target": [
-                        "TargetMyTaskUI"
-                    ]
-                }
-            ],
-            "targets": {
-                "TargetMyTaskUI": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "MyTaskUI",
-                    "viewName": "MyTaskUI"
-                }
-            }
+            "routes": [],
+            "targets": {}
         },
         "rootView": {
             "viewName": "workflowuimodule.view.App",

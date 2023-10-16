@@ -29,6 +29,41 @@ sap.ui.define(
           // set the device model
           this.setModel(models.createDeviceModel(), "device");
 
+          // const t = {
+          //   "SAP__Origin": "NA",
+          //   "InstanceID": "70f30c3a-6bf5-11ee-beb8-eeee0a94a675",
+          //   "TaskDefinitionID": "form_approvalForm_5@eu10.spa-app-dev-team-dsq6emq0.customui5task.approvePDF",
+          //   "TaskDefinitionName": "Approval Form",
+          //   "TaskTitle": "Document Approval",
+          //   "Priority": "MEDIUM",
+          //   "PriorityText": "Medium",
+          //   "Status": "READY",
+          //   "StatusText": "Ready",
+          //   "CreatedOn": "2023-10-16T07:27:20.093Z",
+          //   "CreatedBy": "willem.pardaens@sap.com",
+          //   "CreatedByName": "willem.pardaens@sap.com",
+          //   "SubstitutedUserName": null,
+          //   "CompletionDeadLine": null,
+          //   "PriorityNumber": 5,
+          //   "ConfidenceLevel": null
+          // }
+          // const c = {
+          //   "BusinessReason": "reason",
+          //   "CMISFolder": "spa-res:cmis:folderid:JxRj1KWVaLcD8A54pYXcoJaI8YXNINRf9vZbOrrFPFs",
+          //   "CMISFiles": [
+          //     {
+          //       "Name": "My file",
+          //       "Path": "/ApprovalCustomUI5.workflowuimodule-0.2.0/spa_dms/root?objectId=5GuzLBXnTHxCbAWG0UekV7RvJGb4VaoE4mZHk1vXtK4"
+          //     },
+          //     {
+          //       "Name": "My file 2",
+          //       "Path": "/ApprovalCustomUI5.workflowuimodule-0.2.0/spa_dms/root?objectId=5GuzLBXnTHxCbAWG0UekV7RvJGb4VaoE4mZHk1vXtK5"
+          //     }
+          //   ]
+          // }
+          // this.setModel(new sap.ui.model.json.JSONModel(t), "task");
+          // this.setModel(new sap.ui.model.json.JSONModel(c), "context");
+
           this.setTaskModels();
           this.expandCMISFolderToFiles();
 
