@@ -1,9 +1,55 @@
-<mvc:View xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" controllerName="workflowuimodule.controller.App" displayBlock="true">
-    <FlexBox class="sapUiMediumMargin" direction="Column" >
-        <Label text="Business Reason:" design="Bold"/>
-        <Input value="{context>/BusinessReason}" editable="false"/>
-        <Label text="Approver Comments:" design="Bold"/>
-        <TextArea xmlns="sap.m" value="{context>/Comments}" rows="4" width="100%"/>
-        <PDFViewer source="{context>/CMISFile}" title="Attachment" displayType="Embedded" height="800px"/>
-    </FlexBox>
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:card="sap.f.cards" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="workflowuimodule.controller.App" displayBlock="true">
+    <l:ResponsiveSplitter defaultPane="__pane0" id="splitter0">
+        <l:rootPaneContainer>
+            <l:PaneContainer orientation="Horizontal" id="container0">
+                <l:SplitPane requiredParentWidth="50" id="pane0">
+                    <l:layoutData>
+                        <l:SplitterLayoutData size="33%"/>
+                    </l:layoutData>
+                    <VBox>
+                        <Panel backgroundDesign="Transparent">
+                            <f:Card>
+                                <f:header>
+                                    <card:Header id="AttachmentsHeader" title="Attachments" subtitle="No data" iconSrc="sap-icon://attachment"/>
+                                </f:header>
+                                <f:content>
+                                    <List id="listAttachments" class="sapUiSizeCompact" selectionChange="onSelectFile" items="{context>/CMISFiles}" mode="SingleSelectMaster" updateFinished="onUpdateFinished">
+                                        <DisplayListItem label="{context>Name}" custom:key="{context>Path}" value="&gt;"/>
+                                    </List>
+                                </f:content>
+                            </f:Card>
+                        </Panel>
+                        <Panel backgroundDesign="Transparent">
+                            <f:Card>
+                                <f:header>
+                                    <card:Header title="Request" subtitle="Details" iconSrc="sap-icon://task"/>
+                                </f:header>
+                                <f:content>
+                                    <VBox width="100%" class="sapUiSmallMargin">
+                                        <Label text="Business Reason:"/>
+                                        <Input value="{context>/BusinessReason}" editable="false"/>
+                                        <Label text=" "/>
+                                        <Label text="Approver Comments:" />
+                                        <TextArea xmlns="sap.m" value="{context>/Comments}" rows="4" width="100%" placeholder="Provide comments here ..."/>
+                                    </VBox>
+                                </f:content>
+                            </f:Card>
+                        </Panel>
+                    </VBox>
+                </l:SplitPane>
+                <l:SplitPane requiredParentWidth="50" id="pane1">
+                    <Panel backgroundDesign="Transparent">
+                        <f:Card>
+                            <f:header>
+                                <card:Header title="Attachment Preview" subtitle="" iconSrc="sap-icon://search"/>
+                            </f:header>
+                            <f:content>
+                                <PDFViewer id="filePreview" displayType="Embedded" height="700px"/>
+                            </f:content>
+                        </f:Card>
+                    </Panel>
+                </l:SplitPane>
+            </l:PaneContainer>
+        </l:rootPaneContainer>
+    </l:ResponsiveSplitter>
 </mvc:View>

@@ -149,8 +149,13 @@ sap.ui.define(
             if (folderID) {
               const oFiles = new sap.ui.model.json.JSONModel(`/${sApplicationPath}/spa_dms/root?objectId=${folderID}`);
               oFiles.dataLoaded().then(() => {
-                const aFiles = oFiles.getData()?.objects?.map(x => `/${sApplicationPath}/spa_dms/root?objectId=${x.object.properties['cmis:objectId'].value}`) || [];
-                (aFiles.length >= 1) && this.getModel("context").setProperty("/CMISFile", aFiles[0])
+                const aFiles = oFiles.getData()?.objects?.map(x => {
+                  return {
+                    Name: decodeURIComponent(x.object.properties['cmis:name'].value),
+                    Path: `/${sApplicationPath}/spa_dms/root?objectId=${x.object.properties['cmis:objectId'].value}`
+                  }
+                }) || [];
+                this.getModel("context").setProperty("/CMISFiles", aFiles)
               })
             }
           })
